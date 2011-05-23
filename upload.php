@@ -1,8 +1,9 @@
 <?php
 	$l__type                 = $_POST['type'];
+	$l__prefix               = $_POST['prefix'];
 	$l__directory            = 'upload/';
 	$l__filename             = basename($_FILES['mm']['name']);
-	$l__max_size             = 100000;
+	$l__max_size             = 1000000;
 	$l__file_size            = filesize($_FILES['mm']['tmp_name']);
 	$l__available_extensions = array('.mm');
 	$l__file_extension       = strrchr($_FILES['mm']['name'], '.'); 
@@ -169,6 +170,7 @@
 		global $l__tc_id;
 		global $l__ts_id;
 		global $l__ext_id;
+		global $l__prefix;
 		$l__indentation = '';
 		for($i=1;$i<=$i__level;$i++)
 		{
@@ -217,7 +219,7 @@
 			elseif(!is_step($dom_element) and has_fire($dom_element))
 			{
 				// TEST SUITE
-				echo "$l__indentation<testsuite name=\"SSP-TS-$l__name\">\n";
+				echo "$l__indentation<testsuite name=\"$l__prefix-TS-$l__name\">\n";
 				echo "$l__indentation	<node_order><![CDATA[$i__node_order]]></node_order>\n";
 				echo "$l__indentation	<details><![CDATA[]]></details>\n";
 				

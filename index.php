@@ -10,14 +10,20 @@
 	</head>
 	<body>
 		<h1>TLMind</h1>
-		<p>Upload a freemind file (.mm) in order to convert it in TestLink xml file to import.</p>
+		<hr/>
+		<p>Upload a freemind file (.mm) in order to convert it in TestLink (.xml) file to import.</p>
+		<p><img src='images/mmtoxml.png'/></p>
 		<p>
 			<form id="uploadForm" action="upload.php" method="POST" enctype="multipart/form-data">
-				 <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+				 <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
 				<table>
 					<tr>
-						<td>File :</td>
+						<td>MM File :</td>
 						<td><input type="file" name="mm"></td>
+					</tr>
+					<tr>
+						<td>Prefix :</td>
+						<td><input type=text name="prefix" value="PRE"></td>
 					</tr>
 					<tr>
 						<td>Tests :</td>
@@ -33,6 +39,36 @@
 					</table>
 			</form>
 		</p>
-		<footer><small>Developped by <a href='faure.thomas@gmail.com'>Thomas Faur&eacute;</a> - &copy; 2011</small></footer>
+		<hr/>
+		<p>Upload a TestLink file (.xml) in order to convert it in Freemind (.mm) file to import.</p>
+		<p><img src='images/xmltomm.png'/></p>
+		<p>
+			<form id="uploadFormXmlToMm" action="uploadXmlToMm.php" method="POST" enctype="multipart/form-data">
+				 <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+				<table>
+					<tr>
+						<td>XML File :</td>
+						<td><input type="file" name="xmlf"></td>
+					</tr>
+					<tr>
+						<td>Prefix :</td>
+						<td><input type=text name="prefix" value="PRE"></td>
+					</tr>
+					<tr>
+						<td>Tests :</td>
+						<td><input type=radio name="type" value="tests" selected="selected"></td>
+					</tr>
+					<tr>
+						<td>Requirements :</td>
+						<td><input type=radio name="type" value="requirements"></td>
+					</tr>
+					<tr colspan=2>
+						<td><input type="submit" name="envoyer" value="Upload"></td>
+					</tr>
+					</table>
+			</form>
+		</p>
+		<hr/>
+		<footer><small>Developped by <a href='mailto:faure.thomas@gmail.com'>Thomas Faur&eacute;</a> - &copy; 2011</small></footer>
 	</body>
 </html>
